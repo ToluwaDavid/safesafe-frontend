@@ -1,12 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
   return (
-    <section className="bg-gradient-to-b from-bg.panel to-bg.dark -mb-1">
+    <section className="bg-gradient-to-b from-bg.panel to-bg.dark -mb-1 p-4">
         <div className='text-center mt-10'>
              <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight text-blue-600">SafeSafe — Your safety, simplified.</h1>
-            <p className="mt-4  w-50% text-gray-500 p-4">Create a trusted circle of up to five people. If you’re lost or in danger, send your exact location to them instantly via SMS or email.</p>
-            
+            <p className="mt-4  w-3/4 text-gray-500 text-center mx-auto">Create a trusted circle of up to five people. If you’re lost or in danger, send your exact location to them instantly via SMS or email.</p>
+            <div className='mt-4  flex justify-center'>
+                <Link to="/register" className='px-4 py-4 rounded-md text-white w-[200px] bg-blue-600 font-semibold'>Create Free Account</Link>
+            </div>
              <div className="mt-6 text-sm text-gray-400">
               <span className="inline-flex items-center gap-2">🔒 Encrypted • 🔔 Real-time • 🚫 No spam</span>
             </div>
