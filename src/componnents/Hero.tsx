@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 
 export default function Hero() {
   return (
-    <section className="bg-gradient-to-b from-bg.panel to-bg.dark -mb-1 p-4">
+    <section className="bg-[#00A9FF] text-white text-center py-32 p-4">
         <div className='text-center mt-10'>
-             <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight text-blue-600">SafeSafe — Your safety, simplified.</h1>
-            <p className="mt-4  w-3/4 text-gray-500 text-center mx-auto">Create a trusted circle of up to five people. If you’re lost or in danger, send your exact location to them instantly via SMS or email.</p>
-            <div className='mt-4  flex justify-center'>
-                <Link to="/register" className='px-4 py-4 rounded-md text-white w-[200px] bg-blue-600 font-semibold'>Create Free Account</Link>
+             <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight ">SafeSafe — Your safety, simplified.</h1>
+            <p className="mt-4  w-3/4 text-center mx-auto pt-4">Create a trusted circle of up to five people. If you’re lost or in danger, send your exact location to them instantly via SMS or email.</p>
+            <div className='mt-4  flex justify-center pt-4'>
+                <Link to="/register" className='px-4 py-4 rounded-md bg-white text-[#00A9FF] w-[200px]  font-semibold'>Create Free Account</Link>
             </div>
-             <div className="mt-6 text-sm text-gray-400">
-              <span className="inline-flex items-center gap-2">🔒 Encrypted • 🔔 Real-time • 🚫 No spam</span>
+             <div className="mt-6 text-sm text-gray-400 pt-4">
+              <span className="inline-flex items-center gap-2 text-white">🔒 Encrypted • 🔔 Real-time • 🚫 No spam</span>
             </div>
         </div>
 

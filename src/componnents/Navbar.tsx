@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 
-export const Navbar = () => {
+interface NavbarProps{
+  theme: string;
+  setTheme: (theme: string) => void;
+}
+
+export const Navbar: React.FC<NavbarProps> = ({theme , setTheme}) => {
   const { user, logout } = useAuth();
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
@@ -12,22 +17,26 @@ export const Navbar = () => {
     navigate('/login');
   };
 
+  const toggleTheme = () =>{
+    setTheme(theme === 'dark' ? 'light' : 'dark' )
+  }
+
   return (
-    <nav className="bg-white shadow-sm border-blue-600">
+    <nav className="bg-[#00A9FF] border-blue-600 dark:bg-gray-900 dark:border-gray-700">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="font-bold text-lg">
+        <Link to="/" className="font-bold text-lg text-white">
           SafeSafe
-          <div className="text-xs text-gray-500 -mt-0.5">Your safety network</div>
+          <div className="text-xs -mt-0.5 text-white">Your safety network</div>
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-6">
-          <Link to="/" className="text-gray-700 hover:text-blue-600">Home</Link>
+          <Link to="/" className="text-white hover:text-gray-600">Home</Link>
           {user && (
             <>
-              <Link to="/contacts" className="text-gray-700 hover:text-blue-600">Contacts</Link>
-              <Link to="/dashboard" className="text-gray-700 hover:text-blue-600">Dashboard</Link>
+              <Link to="/contacts" className="text-white hover:text-gray-600">Contacts</Link>
+              <Link to="/dashboard" className="text-white hover:text-gray-600">Dashboard</Link>
               <button
                 onClick={handleLogout}
                 className="text-red-600 font-medium hover:underline"
@@ -38,15 +47,23 @@ export const Navbar = () => {
           )}
           {!user && (
             <>
-              <Link to="/login" className="text-gray-700 hover:text-blue-600">Login</Link>
+              <Link to="/login" className="text-white hover:text-gray-600">Login</Link>
               <Link
                 to="/register"
-                className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+                className="bg-white  text-[#00A9FF] px-4 py-2 rounded-md hover:bg-blue-700"
               >
                 Get Started
               </Link>
             </>
           )}
+
+          {/* <button 
+          onClick={toggleTheme}
+          className={`border rounded-md px-3 py-1 text-sm font-medium transition-colors duration-300 ${theme === 'dark' ? 'text-yellow-400 border-yellow-400 hover:bg-yellow-400 hover:text-gray-900': 'text-gray-800 border-gray-200 hover:bg-gray-100' }`}
+          >
+            {theme === 'dark' ? '☀ Light' : '🌙 Dark'}
+          </button> */}
+
         </div>
 
         {/* Mobile Menu Button */}
@@ -54,7 +71,7 @@ export const Navbar = () => {
           onClick={() => setOpen(!open)}
           className="md:hidden p-2 rounded-md border border-gray-300"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeWidth={2}
               strokeLinecap="round"
@@ -69,7 +86,7 @@ export const Navbar = () => {
       {open && (
         <div className="md:hidden px-4 pb-3 border-t">
           <div className="flex flex-col gap-4 mt-3">
-            <Link onClick={() => setOpen(false)} to="/" className="text-gray-700">
+            <Link onClick={() => setOpen(false)} to="/" className="text-white">
               Home
             </Link>
             {user && (
@@ -93,18 +110,24 @@ export const Navbar = () => {
             )}
             {!user && (
               <>
-                <Link onClick={() => setOpen(false)} to="/login" className="text-gray-700">
+                <Link onClick={() => setOpen(false)} to="/login" className="text-white">
                   Login
                 </Link>
                 <Link
                   onClick={() => setOpen(false)}
                   to="/register"
-                  className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+                  className="bg-white text-[#00A9FF] px-4 py-2 rounded-md hover:bg-blue-700"
                 >
                   Get Started
                 </Link>
               </>
             )}
+             {/* <button 
+          onClick={toggleTheme}
+          className={`border rounded-md px-3 py-1 text-sm font-medium transition-colors duration-300 ${theme === 'dark' ? 'text-yellow-400 border-yellow-400 hover:bg-yellow-400 hover:text-gray-900': 'text-gray-800 border-gray-200 hover:bg-gray-100' }`}
+          >
+            {theme === 'dark' ? '☀ Light' : '🌙 Dark'}
+          </button> */}
           </div>
         </div>
       )}

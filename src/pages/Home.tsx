@@ -5,10 +5,15 @@ import  About  from '../componnents/About'
 import Cta from '../componnents/Cta'
 import Footer from '../componnents/Footer'
 
-export const Home = () => {
+interface HomeProps {
+  theme: string;
+  setTheme: (theme: string) => void
+}
+
+export const Home : React.FC<HomeProps> = ({theme, setTheme}) => {
   return (
     <>
-        <Navbar />  
+        <Navbar theme={theme} setTheme={setTheme} />  
         <Hero /> 
         <About />   
         <Cta  />  

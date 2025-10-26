@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
 
 function App() {
+
+  const [theme, setTheme] = useState('light')
   return (
-    <div className="">
+    <div className={theme === 'dark' ? 'dark bg-gray-900 text-white' : 'bg-white text-black'  }>
       
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home theme={theme} setTheme={setTheme} />} />
         </Routes>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
