@@ -3,8 +3,32 @@ import { Link } from 'react-router-dom';
 
 export default function Hero() {
   return (
-    <section className="bg-[#00A9FF] text-white text-center py-32 p-4">
-        <div className='text-center mt-10'>
+    <section className="py-32">
+      <div className='container mx-auto px-4 text-center'>
+        <div className="max-w-3xl mx-auto leading-9">
+            <h1 className="text-8xl sm:text-5xl font-extrabold text-textLight dark:text-textDark leading-12">
+            SafeSafe — 
+          </h1>
+          <h1 className="text-5xl sm:text-5xl font-extrabold text-textLight dark:text-textDark leading-12 mt-4">
+             Your safety, simplified.
+          </h1>
+           <p className="mt-8 text-gray-600 dark:text-gray-400">
+            Create a trusted circle of up to five people. If you’re lost or in danger, send your exact location to them instantly via SMS or email.
+          </p>
+
+          <div className='mt-8 flex justify-center gap-4'>
+               <Link to="/register" className="px-6 py-3 rounded-md bg-primary text-white font-medium hover:bg-brandDark transition">
+              Create Free Account
+            </Link>
+          </div>
+
+           <div className="mt-6 text-sm text-gray-500 dark:text-gray-400">
+            <span className="inline-flex items-center gap-2">🔒 Encrypted • 🔔 Real-time • 🚫 No spam</span>
+          </div>
+        </div>
+      </div>
+    {/* <section className="text-white text-center py-32 p-4"> */}
+        {/* <div className='text-center mt-10'>
              <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight ">SafeSafe — Your safety, simplified.</h1>
             <p className="mt-4  w-3/4 text-center mx-auto pt-4">Create a trusted circle of up to five people. If you’re lost or in danger, send your exact location to them instantly via SMS or email.</p>
             <div className='mt-4  flex justify-center pt-4'>
@@ -13,7 +37,7 @@ export default function Hero() {
              <div className="mt-6 text-sm text-gray-400 pt-4">
               <span className="inline-flex items-center gap-2 text-white">🔒 Encrypted • 🔔 Real-time • 🚫 No spam</span>
             </div>
-        </div>
+        </div> */}
 
       {/* <div className="py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">

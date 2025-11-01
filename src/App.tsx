@@ -1,30 +1,45 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
 
 function App() {
 
-  const [theme, setTheme] = useState('light')
+  const getInitialTheme = (): 'light' | 'dark' =>{
+    try {
+      const stored = localStorage.getItem('theme');
+      return stored === 'dark' ? 'dark' : 'light';
+    } catch {
+      return 'light'
+    }
+  }  
+
+  const [theme, setTheme] = useState<'light' | 'dark'>(getInitialTheme())
+
+  useEffect(()=>{
+    const root = document.documentElement; 
+    if(theme === 'dark'){
+      root.classList.add('dark');
+    }else {
+       root.classList.remove('dark');
+    }
+
+    try {
+       localStorage.setItem('theme', theme)
+    } catch (error) {
+      console.warn('Could not save theme to localStorage:', error)
+    }
+   
+  }, [theme])
+
+
   return (
-    <div className={theme === 'dark' ? 'dark bg-gray-900 text-white' : 'bg-white text-black'  }>
-      
-        <Routes>
-          <Route path='/' element={<Home theme={theme} setTheme={setTheme} />} />
-        </Routes>
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+
+     <div className={`min-h-screen transition-colors duration-300 ${
+      theme === 'dark' ? 'bg-bgDark text-textDark' : 'bg-bgLight text-textLight'
+    }`}>
+      <Routes>
+        <Route path='/' element={<Home theme={theme} setTheme={setTheme} />} />
+      </Routes>
     </div>
   );
 }

@@ -6,8 +6,8 @@ import Cta from '../componnents/Cta'
 import Footer from '../componnents/Footer'
 
 interface HomeProps {
-  theme: string;
-  setTheme: (theme: string) => void
+  theme: 'light' | 'dark'
+  setTheme: (theme: 'light' | 'dark') => void
 }
 
 export const Home : React.FC<HomeProps> = ({theme, setTheme}) => {
