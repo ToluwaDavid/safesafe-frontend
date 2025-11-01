@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="py-32">
       <div className='container mx-auto px-4 text-center'>
         <div className="max-w-3xl mx-auto leading-9">
-            <h1 className="text-8xl sm:text-5xl font-extrabold text-textLight dark:text-textDark leading-12">
+            <h1 className="text-5xl sm:text-5xl font-extrabold text-textLight dark:text-textDark leading-12">
             SafeSafe — 
           </h1>
           <h1 className="text-5xl sm:text-5xl font-extrabold text-textLight dark:text-textDark leading-12 mt-4">
