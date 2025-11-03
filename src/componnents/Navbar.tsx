@@ -24,18 +24,18 @@ export const Navbar: React.FC<NavbarProps> = ({theme , setTheme}) => {
   return (
     <nav className={`transition-colors duration-300 border-b shadow-sm ${theme === 'dark'
         ? 'bg-surfaceDark border-gray-700 text-textDark'
-        : 'bg-primary border-blue-300 text-white' }`}>
+        : 'bg-white border-blue-300 text-white' }`}>
 
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="font-bold text-lg text-white">
+        <Link to="/" className="font-bold text-lg text-primary">
           SafeSafe
-          <div className="text-xs -mt-0.5 text-white">Your safety network</div>
+          <div className="text-xs -mt-0.5 text-primary">Your safety network</div>
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-6">
-          <Link to="/" className="text-white hover:opacity-80">Home</Link>
+          <Link to="/" className="text-primary hover:opacity-80">Home</Link>
           {user && (
             <>
               <Link to="/contacts" className="hover:opacity-80">Contacts</Link>
@@ -50,10 +50,10 @@ export const Navbar: React.FC<NavbarProps> = ({theme , setTheme}) => {
           )}
           {!user && (
             <>
-              <Link to="/login" className="hover:opacity-80">Login</Link>
+              <Link to="/login" className="hover:opacity-80 text-primary">Login</Link>
               <Link
                 to="/register"
-                className={` px-4 py-2 rounded-md font-medium transition ${theme === 'dark'  ? 'bg-primary text-white hover:bg-brandDark': 'bg-white text-primary hover:bg-blue-100'}`}
+                className={` px-4 py-2 rounded-md font-medium transition ${theme === 'dark'  ? 'bg-primary text-white hover:bg-brandDark': 'bg-primary text-white hover:bg-blue-100'}`}
               >
                 Get Started
               </Link>
@@ -72,9 +72,9 @@ export const Navbar: React.FC<NavbarProps> = ({theme , setTheme}) => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden p-2 rounded-md border border-gray-300"
+          className="md:hidden p-2 rounded-md border border-gray-300 text-primary"
         >
-          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeWidth={2}
               strokeLinecap="round"
@@ -89,15 +89,15 @@ export const Navbar: React.FC<NavbarProps> = ({theme , setTheme}) => {
       {open && (
         <div className="md:hidden px-4 pb-3 border-t border-white ">
           <div className="flex flex-col gap-4 mt-3">
-            <Link onClick={() => setOpen(false)} to="/" className="hover:opacity-80">
+            <Link onClick={() => setOpen(false)} to="/" className="text-primary hover:opacity-80"> 
               Home
             </Link>
             {user && (
               <>
-                <Link onClick={() => setOpen(false)} to="/contacts" className="hover:opacity-80">
+                <Link onClick={() => setOpen(false)} to="/contacts" className="text-primary hover:opacity-80">
                   Contacts
                 </Link>
-                <Link onClick={() => setOpen(false)} to="/dashboard" className="hover:opacity-80">
+                <Link onClick={() => setOpen(false)} to="/dashboard" className="text-primary hover:opacity-80">
                   Dashboard
                 </Link>
                 <button
@@ -113,13 +113,13 @@ export const Navbar: React.FC<NavbarProps> = ({theme , setTheme}) => {
             )}
             {!user && (
               <>
-                <Link onClick={() => setOpen(false)} to="/login" className="hover:opacity-80">
+                <Link onClick={() => setOpen(false)} to="/login" className="text-primary hover:opacity-80">
                   Login
                 </Link>
                 <Link
                   onClick={() => setOpen(false)}
                   to="/register"
-                  className={` px-4 py-2 rounded-md font-medium transition ${theme === 'dark'  ? 'bg-primary text-white hover:bg-[#0090E0]': 'bg-white text-primary hover:bg-blue-100'}`}
+                  className={` px-4 py-2 rounded-md font-medium transition ${theme === 'dark'  ? 'bg-primary text-white hover:bg-[#0090E0]': 'bg-primary text-white hover:bg-blue-100'}`}
                 >
                   Get Started
                 </Link>

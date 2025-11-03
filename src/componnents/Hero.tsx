@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 export default function Hero() {
   return (
-    <section className="py-32">
+    <section className="py-32 bg-bgLight  dark:bg-bgDark">
       <div className='container mx-auto px-4 text-center'>
         <div className="max-w-3xl mx-auto leading-9">
-            <h1 className="text-5xl sm:text-5xl font-extrabold text-textLight dark:text-textDark leading-12">
+            <h1 className="text-5xl sm:text-5xl font-extrabold text-primary dark:text-textDark leading-12">
             SafeSafe — 
           </h1>
           <h1 className="text-5xl sm:text-5xl font-extrabold text-textLight dark:text-textDark leading-12 mt-4">
-             Your safety, simplified.
+             Your <span className='text-primary'>safety, </span>simplified.
           </h1>
            <p className="mt-8 text-gray-600 dark:text-gray-400">
             Create a trusted circle of up to five people. If you’re lost or in danger, send your exact location to them instantly via SMS or email.
