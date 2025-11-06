@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
+import Register from './pages/Register';
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
     }`}>
       <Routes>
         <Route path='/' element={<Home theme={theme} setTheme={setTheme} />} />
+        <Route path="/register" element={<Register theme={theme} setTheme={setTheme} />} />
       </Routes>
     </div>
   );
