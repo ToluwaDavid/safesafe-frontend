@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
 import Register from './pages/Register';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
 
 function App() {
 
@@ -41,6 +43,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home theme={theme} setTheme={setTheme} />} />
         <Route path="/register" element={<Register theme={theme} setTheme={setTheme} />} />
+        <Route path="/login" element={<Login theme={theme} setTheme={setTheme} />} />
+        {/* <Route path="/dashboard" element={<Dashboard  theme={theme} setTheme={setTheme} />} /> */}
       </Routes>
     </div>
   );
