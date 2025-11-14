@@ -62,9 +62,10 @@ export const Navbar: React.FC<NavbarProps> = ({theme , setTheme}) => {
 
            <button 
           onClick={toggleTheme}
-          className={`border rounded-md px-4  py-2 text-sm font-medium transition-colors duration-300 ${theme === 'dark' ? ' text-yellow-300 border-yellow-400 hover:bg-gray-900': 'bg-blue-50 text-gray-800 hover:bg-blue-100' }`}
+          // className={`border rounded-md px-4  py-2 text-sm font-medium transition-colors duration-300 ${theme === 'dark' ? ' text-yellow-300 border-yellow-400 hover:bg-gray-900': 'bg-blue-50 text-gray-800 hover:bg-blue-100' }`}
+          className="p-2 font-bold rounded-lg bg-gray-200 dark:bg-gray-700 text-textLight dark:text-textDark"
           >
-            {theme === 'dark' ? '☀ Light' : '🌙 Dark'}
+            {theme === 'dark' ? '☀️ Light' : '🌙 Dark'}
           </button> 
 
         </div>
